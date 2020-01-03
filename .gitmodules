@@ -1,0 +1,4 @@
+[submodule "kcdfw"]
+	path = kcdfw
+	url = https://github.com/icecubetray/kcdfw.git
+	branch = master

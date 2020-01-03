@@ -1,0 +1,13 @@
+*
+!*/
+
+!*.lua
+
+!*.sh
+!Makefile
+
+!.gitignore
+!.editorconfig
+
+intermediate
+dist
