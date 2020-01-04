@@ -13,4 +13,7 @@ jester = {
 
 
 
+
+kcdfw.logBootstrap(jester.package.name, "Bootstrapping start");
 kcdfw.bootstrap("Scripts/Modules", "Quests");
+kcdfw.logBootstrap(jester.package.name, "Bootstrapping end");
