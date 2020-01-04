@@ -13,7 +13,8 @@ end
 kcdfw.registerCommand(
 	"jester_quest_deactivate",
 	"jester.deactivateQuest(%line)",
-	"Deactivate the given quest."
+	"Deactivate the given quest.",
+	"-q <quest>"
 );
 
 
@@ -31,7 +32,8 @@ end
 kcdfw.registerCommand(
 	"jester_quest_activate",
 	"jester.activateQuest(%line)",
-	"Activate the given quest."
+	"Activate the given quest.",
+	"-q <quest>"
 );
 
 
@@ -62,5 +64,6 @@ end
 kcdfw.registerCommand(
 	"jester_quest_reset",
 	"jester.resetQuest(%line)",
-	"Activate the given quest."
+	"Reset the given quest. Use -d to also deactivate and reactivate the quest.",
+	"-q <quest> [-d]"
 );
