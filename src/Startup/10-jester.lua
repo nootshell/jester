@@ -13,7 +13,13 @@ jester = {
 
 
 
+if jester.runLocal then
+	dofile('../kcdfw/src/Startup/00-kcdfw.lua');
+end
 
-kcdfw.logBootstrap(jester.package.name, "Bootstrapping start");
-kcdfw.bootstrap("Scripts/Modules", "Quests");
-kcdfw.logBootstrap(jester.package.name, "Bootstrapping end");
+
+
+
+kcdfw.logBootstrap(jester, "Bootstrapping start");
+kcdfw.bootstrap(jester, "Scripts/Modules", "Quests", "Progress");
+kcdfw.logBootstrap(jester, "Bootstrapping end");

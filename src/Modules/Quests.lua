@@ -40,7 +40,7 @@ jester.resetQuest = function (cmdline)
 
 	local quest = (args["q"] or args["quest"]);
 	if not quest then
-		kcdfw.logError(jester.package.name, "Invalid quest given");
+		kcdfw.logError(jester, "Invalid quest given");
 		return;
 	end
 
