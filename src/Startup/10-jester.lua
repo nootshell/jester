@@ -14,12 +14,30 @@ jester = {
 
 
 if jester.runLocal then
-	dofile('../kcdfw/src/Startup/00-kcdfw.lua');
+	dofile('kcdfw/src/Startup/00-kcdfw.lua');
+end
+
+if not kcdfw then
+
 end
 
 
 
 
+local function buildPaths()
+	local root = kcdfw.getScriptRoot();
+
+	return {
+		root = root,
+		modules = ("%s/%s"):format(root, "Modules")
+	};
+end
+
+jester.paths = buildPaths();
+
+
+
+
 kcdfw.logBootstrap(jester, "Bootstrapping start");
-kcdfw.bootstrap(jester, "Scripts/Modules", "Quests", "Progress");
+kcdfw.bootstrap(jester, jester.paths.modules, "Quests", "Progress");
 kcdfw.logBootstrap(jester, "Bootstrapping end");
