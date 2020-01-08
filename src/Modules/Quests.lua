@@ -7,7 +7,6 @@ jester.deactivateQuest = function (cmdline)
 	end
 
 	QuestSystem.DeactivateQuest(quest);
-	QuestSystem.CancelQuest(quest);
 end
 
 kcdfw.registerCommand(
@@ -34,6 +33,32 @@ kcdfw.registerCommand(
 	"jester.activateQuest(%line)",
 	"Activate the given quest.",
 	"-q <quest>"
+);
+
+
+jester.setQuestObjective = function (cmdline)
+	local args = kcdfw.parseCmdline(cmdline);
+
+	local quest = (args["q"] or args["quest"]);
+	if not quest then
+		kcdfw.logError(jester, "Invalid quest given");
+		return;
+	end
+
+	local obj = (args["o"] or args["obj"] or args["objective"]);
+	if not obj then
+		kcdfw.logError(jester, "Invalid objective given");
+		return;
+	end
+
+	QuestSystem.StartObjective(quest, obj);
+end
+
+kcdfw.registerCommand(
+	"jester_quest_set_objective",
+	"jester.resetQuest(%line)",
+	"Starts the specified objective of the specified quest.",
+	"-q <quest> [-d]"
 );
 
 
