@@ -65,6 +65,6 @@ kcdfw.registerCommand(
 		d = "Disable the specified quest.",
 		s = "Start the specified quest.",
 		o = "Start the given objective on the specified quest.",
-		q = "Specify quest to act on."
+		q = { value = "quest", description = "Specify quest to act on." }
 	}
 );
