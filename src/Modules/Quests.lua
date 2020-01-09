@@ -44,6 +44,8 @@ jester.cmdQuest = function(args)
 		if not objective then
 			objective = 1
 		end
+
+		start = true;
 	end
 
 	if objective and not kcdfw.isInt(objective) then
@@ -101,3 +103,25 @@ kcdfw.registerCommand(
 		q = { value = "quest", description = "Specify quest to act on." }
 	}
 );
+
+
+
+
+jester.cmdQuestList = function(args)
+	local filter = (args.filter or args.f);
+
+	local res = kcdfw.findQuest(filter);
+	for i, quest in ipairs(res) do
+		kcdfw.logAlways(jester, "> %s", quest);
+	end
+end
+
+
+kcdfw.registerCommand(
+	"jester_quest_list",
+	"jester.cmdQuestList(cmdtab(%line))",
+	"Quest listing.",
+	{
+		f = { value = "pattern", description = "Filter to apply to the listing. Only entries containing <pattern> are listed.", optional = true }
+	}
+)
